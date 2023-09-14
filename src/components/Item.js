@@ -1,11 +1,15 @@
 import React from "react";
 
-function Item({ name, category }) {
+function Item({item, toggleInCart}) {
+  const {category, inCart, name} = item
+  
+
+
   return (
-    <li className="">
+    <li className={inCart ? 'in-cart' : ''} >
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button className="add">Add to Cart</button>
+      <button onClick={toggleInCart} className="add">{inCart ? "Remove from Cart" : "Add to Cart"}</button>
     </li>
   );
 }
